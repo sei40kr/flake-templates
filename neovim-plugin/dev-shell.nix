@@ -1,4 +1,8 @@
-{ mkShell, neovim, plugin }:
+{
+  mkShell,
+  neovim,
+  plugin,
+}:
 
 mkShell {
   buildInputs = [

@@ -5,7 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/23.11";
   };
 
-  outputs = { self, flake-parts, nixpkgs }@inputs:
+  outputs =
+    {
+      self,
+      flake-parts,
+      nixpkgs,
+    }@inputs:
     let
       inherit (flake-parts.lib) mkFlake;
     in
@@ -17,7 +22,8 @@
         "aarch64-darwin"
       ];
 
-      perSystem = { config, pkgs, ... }:
+      perSystem =
+        { config, pkgs, ... }:
         let
           plugin = pkgs.callPackage ./package.nix { };
         in
